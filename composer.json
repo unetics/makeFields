@@ -1,0 +1,11 @@
+{
+    "name": "makeweb/makefields",
+    "autoload": {
+        "psr-4":  {
+            "MakeFields\\": "src"
+        },
+        "files": [
+            "meta-box.php"
+        ]
+    }
+}
