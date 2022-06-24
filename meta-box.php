@@ -18,3 +18,19 @@ if ( defined( 'ABSPATH' ) && ! defined( 'RWMB_VER' ) ) {
 	$rwmb_loader = new RWMB_Loader();
 	$rwmb_loader->init();
 }
+
+if(!function_exists('i_am_mw')) {
+	function i_am_mw() {
+		$current_user = wp_get_current_user();
+		$email        = $current_user->user_email;
+		$allowed      = [
+			'makeweb.com.au'
+		];
+		$parts        = explode( '@', $email );
+		$domain       = array_pop( $parts );
+		if ( in_array( $domain, $allowed ) ) {
+			return true;
+		}
+		return false;
+	}
+}
