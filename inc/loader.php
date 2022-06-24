@@ -9,13 +9,8 @@
 
 /**
  * Plugin loader class.
- *
- * @package Meta Box
  */
 class RWMB_Loader {
-	/**
-	 * Define plugin constants.
-	 */
 	protected function constants() {
 		// Script version, used to add version for scripts and styles.
 		define( 'RWMB_VER', '4.16.1' );
@@ -36,7 +31,6 @@ class RWMB_Loader {
 	 * Get plugin base path and URL.
 	 * The method is static and can be used in extensions.
 	 *
-	 * @link http://www.deluxeblogtips.com/2013/07/get-url-of-php-file-in-wordpress.html
 	 * @param string $path Base folder path.
 	 * @return array Path and URL.
 	 */
@@ -75,7 +69,6 @@ class RWMB_Loader {
 		$autoloader = new RWMB_Autoloader();
 		$autoloader->add( RWMB_INC_DIR, 'RW_' );
 		$autoloader->add( RWMB_INC_DIR, 'RWMB_' );
-		$autoloader->add( RWMB_INC_DIR . 'about', 'RWMB_' );
 		$autoloader->add( RWMB_INC_DIR . 'fields', 'RWMB_', '_Field' );
 		$autoloader->add( RWMB_INC_DIR . 'walkers', 'RWMB_Walker_' );
 		$autoloader->add( RWMB_INC_DIR . 'interfaces', 'RWMB_', '_Interface' );
@@ -85,11 +78,6 @@ class RWMB_Loader {
 		// Plugin core.
 		$core = new RWMB_Core();
 		$core->init();
-
-		if ( is_admin() ) {
-			$about = new RWMB_About();
-			$about->init();
-		}
 
 		// Validation module.
 		new RWMB_Validation();

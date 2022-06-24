@@ -5,39 +5,15 @@
  * @package Meta Box
  */
 
-/**
- * The Meta Box core class.
- *
- * @package Meta Box
- */
 class RWMB_Core {
-	/**
-	 * Initialization.
-	 */
+
 	public function init() {
 		load_plugin_textdomain( 'meta-box', false, plugin_basename( RWMB_DIR ) . '/languages/' );
-
-		add_filter( 'plugin_action_links_meta-box/meta-box.php', array( $this, 'plugin_links' ), 20 );
 
 		// Uses priority 20 to support custom port types registered using the default priority.
 		add_action( 'init', array( $this, 'register_meta_boxes' ), 20 );
 		add_action( 'edit_page_form', array( $this, 'fix_page_template' ) );
 		$this->add_context_hooks();
-	}
-
-	/**
-	 * Add links to Documentation and Extensions in plugin's list of action links.
-	 *
-	 * @since 4.3.11
-	 *
-	 * @param array $links Array of plugin links.
-	 *
-	 * @return array
-	 */
-	public function plugin_links( $links ) {
-		$links[] = '<a href="https://docs.metabox.io">' . esc_html__( 'Documentation', 'meta-box' ) . '</a>';
-		$links[] = '<a href="https://metabox.io/plugins/" style="color: #39b54a; font-weight: bold">' . esc_html__( 'Extensions', 'meta-box' ) . '</a>';
-		return $links;
 	}
 
 	/**

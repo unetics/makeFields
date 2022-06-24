@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: makeFields
- * Plugin URI: https://metabox.io
- * Description: Create custom meta boxes and custom fields in WordPress.
+ * Plugin URI: makeweb.com.au
+ * Description: Create custom fields in WordPress.
  * Version: 4.16.1
- * Author: MetaBox.io
- * Author URI: https://metabox.io
+ * Author: makeweb
+ * Author URI: makeweb.com.au
  * License: GPL2+
  * Text Domain: meta-box
  * Domain Path: /languages/
