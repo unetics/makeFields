@@ -31,29 +31,29 @@ class RWMB_Image_Field extends RWMB_File_Field {
 		$attributes = self::get_attributes( $field, $file );
 
 		return sprintf(
-			'<li class="rwmb-image-item attachment %s">
-				<input type="hidden" name="%s[%s]" value="%s">
-				<div class="attachment-preview">
-					<div class="thumbnail">
-						<div class="centered">
-							%s
-						</div>
-					</div>
-				</div>
-				<div class="rwmb-image-overlay"></div>
-				<div class="rwmb-image-actions">
-					<a href="%s" class="rwmb-image-edit" target="_blank"><span class="dashicons dashicons-edit"></span></a>
-					<a href="#" class="rwmb-image-delete rwmb-file-delete" data-attachment_id="%s"><span class="dashicons dashicons-no-alt"></span></a>
-				</div>
-			</li>',
+			'<li class="rwmb-image-item attachment %1$s">
+        <input type="hidden" name="%2$s[%3$s]" value="%4$s">
+        <div class="attachment-preview">
+            <div class="thumbnail">
+                <div class="centered">
+                    %5$s
+                </div>
+            </div>
+        </div>
+        <div class="rwmb-image-overlay"></div>
+        <div class="rwmb-image-actions">
+            <a href="%6$s" class="rwmb-image-edit" target="_blank"><span class="dashicons dashicons-edit"></span></a>
+            <a href="#" class="rwmb-image-delete rwmb-file-delete" data-attachment_id="%4$s"><span class="dashicons dashicons-no-alt"></span></a>
+        </div>
+    </li>',
 			esc_attr( $field['image_size'] ),
 			$attributes['name'],
 			$index,
 			$file,
 			wp_get_attachment_image( $file, $field['image_size'] ),
-			get_edit_post_link( $file ),
-			$file
+			get_edit_post_link( $file )
 		);
+
 	}
 
 
@@ -105,13 +105,13 @@ class RWMB_Image_Field extends RWMB_File_Field {
 	 *
 	 * @return array|bool False if file not found. Array of image info on success.
 	 */
-	public static function file_info( $file, $args = array(), $field ) {
+	public static function file_info( $file, $args = array(), $field = '' ) {
 		$path = get_attached_file( $file );
 		if ( ! $path ) {
 			return false;
 		}
 
-		$args       = wp_parse_args(
+		$args = wp_parse_args(
 			$args,
 			array(
 				'size' => 'thumbnail',
