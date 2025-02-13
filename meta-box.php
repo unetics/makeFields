@@ -3,7 +3,7 @@
  * Plugin Name: makeFields
  * Plugin URI: makeweb.com.au
  * Description: Create custom fields in WordPress.
- * Version: 4.16.2
+ * Version: 4.16.3
  * Author: makeweb
  * Author URI: makeweb.com.au
  * License: GPL2+
